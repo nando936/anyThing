@@ -9,3 +9,13 @@
 [2024-12-29 11:33:17.857403] Git operations completed successfully using GitPython.
 [2024-12-29 11:33:17.858252] Successfully deleted temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
 [2024-12-29 11:33:17.858661] Session log successfully updated without errors.
+[2024-12-29 12:27:40.419334] Log folder already exists: D:\ut\projects\anyThing\interaction_logs
+[2024-12-29 12:27:40.419935] Log file already exists: D:\ut\projects\anyThing\interaction_logs\interaction_log.txt
+[2024-12-29 12:27:40.420419] Log file already exists: D:\ut\projects\anyThing\interaction_logs\error_log.txt
+[2024-12-29 12:27:40.421207] Created a new empty temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 12:27:40.421560] Opening Notepad for session details: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 12:27:44.738448] Session details found in temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 12:27:44.739651] Appended session details to interaction log: D:\ut\projects\anyThing\interaction_logs\interaction_log.txt
+[2024-12-29 12:27:47.005453] Git operations completed successfully using GitPython.
+[2024-12-29 12:27:47.006376] Successfully deleted temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 12:27:47.006737] Session log successfully updated without errors.
