@@ -1,1 +1,2 @@
 untracked-folder/
+!untracked-folder/**/.gitignore
