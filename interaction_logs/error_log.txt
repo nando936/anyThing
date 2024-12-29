@@ -1,7 +1,11 @@
-[2024-12-29 10:45:22.147959] Created log folder: D:\ut\projects\anyThing\interaction_logs\interaction_logs
-[2024-12-29 10:45:22.148999] Created log file: D:\ut\projects\anyThing\interaction_logs\interaction_logs\interaction_log.txt
-[2024-12-29 10:45:22.149458] Log file already exists: D:\ut\projects\anyThing\interaction_logs\interaction_logs\error_log.txt
-[2024-12-29 10:45:22.149810] Opening Notepad for session details: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
-[2024-12-29 10:45:43.060117] Session details found in temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
-[2024-12-29 10:45:43.061383] Appended session details to interaction log: D:\ut\projects\anyThing\interaction_logs\interaction_logs\interaction_log.txt
-[2024-12-29 10:45:43.065098] GitPython operation failed: D:\ut\projects\anyThing\interaction_logs
+[2024-12-29 11:33:11.907321] Log folder already exists: D:\ut\projects\anyThing\interaction_logs
+[2024-12-29 11:33:11.907851] Log file already exists: D:\ut\projects\anyThing\interaction_logs\interaction_log.txt
+[2024-12-29 11:33:11.908265] Log file already exists: D:\ut\projects\anyThing\interaction_logs\error_log.txt
+[2024-12-29 11:33:11.909134] Existing temp file deleted: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 11:33:11.909782] Created a new empty temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 11:33:11.910259] Opening Notepad for session details: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 11:33:15.552624] Session details found in temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 11:33:15.556271] Appended session details to interaction log: D:\ut\projects\anyThing\interaction_logs\interaction_log.txt
+[2024-12-29 11:33:17.857403] Git operations completed successfully using GitPython.
+[2024-12-29 11:33:17.858252] Successfully deleted temp file: D:\ut\projects\anyThing\interaction_logs\temp_session_details.txt
+[2024-12-29 11:33:17.858661] Session log successfully updated without errors.

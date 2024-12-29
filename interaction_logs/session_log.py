@@ -3,11 +3,11 @@ from git import Repo
 from datetime import datetime
 
 # Define paths
-base_dir = os.getcwd()  # Base directory of the script
-log_folder = os.path.join(base_dir, "interaction_logs")  # Single-level log folder
+git_base_dir = r"D:\ut\projects\anyThing"  # Root directory for Git repository
+log_folder = r"D:\ut\projects\anyThing\interaction_logs"  # Root directory for log files
 interaction_log = os.path.join(log_folder, "interaction_log.txt")
 error_log = os.path.join(log_folder, "error_log.txt")
-temp_log = os.path.join(base_dir, "temp_session_details.txt")
+temp_log = os.path.join(log_folder, "temp_session_details.txt")
 
 # Ensure the interaction_logs folder exists
 if not os.path.exists(log_folder):
@@ -27,6 +27,22 @@ for log_file in [interaction_log, error_log]:
     else:
         with open(error_log, "a") as f:
             f.write(f"[{datetime.now()}] Log file already exists: {log_file}\n")
+
+# Ensure a fresh temp file
+if os.path.exists(temp_log):
+    try:
+        os.remove(temp_log)
+        with open(error_log, "a") as f:
+            f.write(f"[{datetime.now()}] Existing temp file deleted: {temp_log}\n")
+    except OSError as e:
+        with open(error_log, "a") as f:
+            f.write(f"[{datetime.now()}] Failed to delete existing temp file: {temp_log} - {e}\n")
+        exit(1)
+
+# Create a new empty temp file
+open(temp_log, "a").close()
+with open(error_log, "a") as f:
+    f.write(f"[{datetime.now()}] Created a new empty temp file: {temp_log}\n")
 
 # Open Notepad for session details
 with open(error_log, "a") as f:
@@ -52,8 +68,7 @@ with open(error_log, "a") as f:
 
 # Git operations using GitPython
 try:
-    # Initialize repository
-    repo = Repo(base_dir)  # Ensure base_dir is the Git repository root
+    repo = Repo(git_base_dir)  # Ensure Git operations use the correct base directory
 
     # Stage the interaction log
     repo.git.add(interaction_log)
@@ -73,13 +88,15 @@ except Exception as e:
     exit(1)
 
 # Clean up temp file
-try:
-    os.remove(temp_log)
-    with open(error_log, "a") as f:
-        f.write(f"[{datetime.now()}] Cleaned up temporary file: {temp_log}\n")
-except OSError as e:
-    with open(error_log, "a") as f:
-        f.write(f"[{datetime.now()}] Failed to delete temporary file: {temp_log} - {e}\n")
+if os.path.exists(temp_log):
+    try:
+        os.remove(temp_log)
+        with open(error_log, "a") as f:
+            f.write(f"[{datetime.now()}] Successfully deleted temp file: {temp_log}\n")
+    except OSError as e:
+        with open(error_log, "a") as f:
+            f.write(f"[{datetime.now()}] Failed to delete temp file: {temp_log} - {e}\n")
+        exit(1)
 
 # Log success
 with open(error_log, "a") as f:

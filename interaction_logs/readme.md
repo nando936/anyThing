@@ -7,18 +7,24 @@ The script appends a timestamped entry, commits the changes, and pushes them to 
 
 ## How to Use
 
+### Working on Scripts
+- When working on a script, always provide the complete, updated script after incorporating any changes, rather than showing only the parts that need to be updated. This ensures clarity and ease of implementation.
+
+
 ### Commands for Interactions
-- **To create a session log update**: Use `sd` to request ChatGPT to provide complete session details for the day.
-- **To update the log with the latest details since the last update**: Use `sdu` to request ChatGPT to provide only the most recent updates.
-- **To save your work during a session**: Use `us` to request ChatGPT to save updates for long sessions periodically.
+- **To create a session log update**: Use `*sd` to request ChatGPT to provide complete session details for the day.
+- **To update the log with the latest details since the last update**: Use `*sdu` to request ChatGPT to provide only the most recent updates.
+- **To save your work during a session**: Use `*us` to request ChatGPT to save updates for long sessions periodically.
+- **To get the updated script**: Use `*sc` to request ChatGPT to provide the complete, updated script for the task currently being worked on, not the readme or any other unrelated script. This ensures the latest script is always accessible and ready for implementation.
 
 #### Prefix for Commands
-To avoid confusion, prefix all commands with `!` (e.g., `!sd`, `!sdu`, `!us`) to clearly indicate that these are commands for ChatGPT.
+To avoid confusion, prefix all commands with `*` (e.g., `*sd`, `*sdu`, `*us`, `*sc`) to clearly indicate that these are commands for ChatGPT. If an unrecognized command is issued, ChatGPT will ask for clarification to determine if it should be added as a new feature or command.g., `*sd`, `*sdu`, `*us`, `*sc`) to clearly indicate that these are commands for ChatGPT.  to clearly indicate that these are commands for ChatGPT.
 
-Before running the script, ensure that GitPython is installed by executing:
+To enable the script, ensure that GitPython is installed by executing:
 ```bash
 pip install gitpython
 ```
+
 
 Before running the script, ensure that GitPython is installed by executing:
 ```bash
@@ -57,6 +63,11 @@ The interaction log should include the current time in Central Time (CST). Use t
 
 **Sample Entry:**
 ```text
+[2024-12-29 10:45 AM CST] Session Details:
+- Initialized the repository and configured GitPython.
+- Created the interaction_log.txt and error_log.txt files.
+- Successfully pushed updates to GitHub.
+```
 [2024-12-29 10:45 AM CST] Session Details:
 - Initialized the repository and configured GitPython.
 - Created the interaction_log.txt and error_log.txt files.
