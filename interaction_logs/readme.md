@@ -8,8 +8,12 @@ The script appends a timestamped entry, commits the changes, and pushes them to 
 ## How to Use
 
 ### Commands for Interactions
-- **To create a session log update**: Use `sd` to request complete session details for the day.
-- **To update the log with the latest details since the last update**: Use `sdu`.
+- **To create a session log update**: Use `sd` to request ChatGPT to provide complete session details for the day.
+- **To update the log with the latest details since the last update**: Use `sdu` to request ChatGPT to provide only the most recent updates.
+- **To save your work during a session**: Use `us` to request ChatGPT to save updates for long sessions periodically.
+
+#### Prefix for Commands
+To avoid confusion, prefix all commands with `!` (e.g., `!sd`, `!sdu`, `!us`) to clearly indicate that these are commands for ChatGPT.
 
 Before running the script, ensure that GitPython is installed by executing:
 ```bash
@@ -34,6 +38,13 @@ The script will automatically:
 - Append the session details to `interaction_log.txt`.
 - Commit the changes to the local Git repository.
 - Push the updated log file to GitHub.
+
+### Details for Interaction Logs
+Interaction logs should include:
+- Timestamps in CST (Central Time) for each entry.
+- Clear descriptions of actions taken during the session.
+- Notes on any issues encountered and their resolutions.
+- Links to relevant resources or files if applicable.
 
 ## Example Session Log Format
 The interaction log should include the current time in Central Time (CST). Use the following format:
@@ -60,12 +71,11 @@ The interaction log should include the current time in Central Time (CST). Use t
 
 ## Outputs
 - Updates the `interaction_log.txt` file with the session details, capturing each session's actions and outcomes.
-- You can view the current interactions in the `interaction_log.txt` file (https://github.com/nando936/anyThing/blob/main/interaction_logs/error_log.txt).
-- Commits the updated log to Git.
-- Pushes the changes to the remote repository on GitHub.
+  - You can view the current interactions in the `interaction_log.txt` file:
+    https://github.com/nando936/anyThing/blob/main/interaction_logs/interaction_log.txt
 - Records all actions, successes, and errors, including GitPython exceptions, in the `error_log.txt` file.
-- Commits the updated log to Git.
-- Pushes the changes to the remote repository on GitHub. `interaction_log.txt` file with the session details.
+  - You can view the latest error messages in the `error_log.txt` file:
+    https://github.com/nando936/anyThing/blob/main/interaction_logs/error_log.txt
 - Commits the updated log to Git.
 - Pushes the changes to the remote repository on GitHub.
 
