@@ -1,15 +1,15 @@
+
 # Interaction Logging Instructions
 
 ## Purpose
-The `session_log.bat` script is used to log session details into the `interaction_log.txt` file.
-It now uses GitPython exclusively for Git operations, providing better integration and simplified commands.
-The script appends a timestamped entry, commits the changes, and pushes them to GitHub.
+This document outlines the guidelines for interacting with ChatGPT and the procedure for logging those interactions. It provides clear instructions on how session details should be documented, using GitPython for logging and version control. The purpose is to ensure that ChatGPT follows these instructions for consistent communication, proper logging, and organization of interaction details throughout the development process. ChatGPT should refer to this document for guidance on how to manage and record e...
+
+Additionally, whenever I paste or upload the `README.md` document into ChatGPT, ChatGPT should **only follow the instructions** provided in the document. ChatGPT should not provide any summaries or overviews of the document. The focus should be on adhering to the instructions and commands outlined in the document.
 
 ## How to Use
 
 ### Working on Scripts
 - When working on a script, always provide the complete, updated script after incorporating any changes, rather than showing only the parts that need to be updated. This ensures clarity and ease of implementation.
-
 
 ### Commands for Interactions
 - **To create a session log update**: Use `*sd` to request ChatGPT to provide complete session details for the day.
@@ -18,13 +18,12 @@ The script appends a timestamped entry, commits the changes, and pushes them to 
 - **To get the updated script**: Use `*sc` to request ChatGPT to provide the complete, updated script for the task currently being worked on, not the readme or any other unrelated script. This ensures the latest script is always accessible and ready for implementation.
 
 #### Prefix for Commands
-To avoid confusion, prefix all commands with `*` (e.g., `*sd`, `*sdu`, `*us`, `*sc`) to clearly indicate that these are commands for ChatGPT. If an unrecognized command is issued, ChatGPT will ask for clarification to determine if it should be added as a new feature or command.g., `*sd`, `*sdu`, `*us`, `*sc`) to clearly indicate that these are commands for ChatGPT.  to clearly indicate that these are commands for ChatGPT.
+To avoid confusion, prefix all commands with `*` (e.g., `*sd`, `*sdu`, `*us`, `*sc`) to clearly indicate that these are commands for ChatGPT. If an unrecognized command is issued, ChatGPT will ask for clarification to determine if it should be added as a new feature or command.
 
 To enable the script, ensure that GitPython is installed by executing:
 ```bash
 pip install gitpython
 ```
-
 
 Before running the script, ensure that GitPython is installed by executing:
 ```bash
@@ -68,11 +67,7 @@ The interaction log should include the current time in Central Time (CST). Use t
 - Created the interaction_log.txt and error_log.txt files.
 - Successfully pushed updates to GitHub.
 ```
-[2024-12-29 10:45 AM CST] Session Details:
-- Initialized the repository and configured GitPython.
-- Created the interaction_log.txt and error_log.txt files.
-- Successfully pushed updates to GitHub.
-```
+
 ```text
 [YYYY-MM-DD HH:MM] Session Details:
 - Action 1
@@ -96,8 +91,6 @@ The interaction log should include the current time in Central Time (CST). Use t
 
 ## Troubleshooting
 - Ensure the script is executed from the root directory of a Git repository, as GitPython requires this to interact correctly with the repository.
-
 - If the script fails to push to GitHub, verify your Git credentials and remote URL.
 - Ensure the `interaction_logs/interaction_log.txt` file exists before running the script.
 - Use `git log` to confirm the commit history after running the script.
-
