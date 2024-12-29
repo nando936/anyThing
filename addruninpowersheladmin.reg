@@ -1,8 +1,0 @@
-Windows Registry Editor Version 5.00
-
-[HKEY_CLASSES_ROOT\*\shell\RunInPowerShellAdmin]
-@="Run in PowerShell as Admin"
-"Icon"="powershell.exe"
-
-[HKEY_CLASSES_ROOT\*\shell\RunInPowerShellAdmin\command]
-@="powershell.exe -NoExit -Command \"Start-Process PowerShell -ArgumentList '-NoExit', '-Command', 'Set-Location -LiteralPath ''%1'';'\" -Verb RunAs"
