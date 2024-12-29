@@ -1,3 +1,0 @@
-[2024-12-29 10:08] Creating interaction log file: interaction_logs\interaction_log.txt 
-[2024-12-29 10:08] Initialization complete. Starting script... 
-[2024-12-29 10:08]  
