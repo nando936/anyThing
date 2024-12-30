@@ -1,16 +1,23 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "Auto Commit and Push",
-        "type": "shell",
-        "command": "./auto_commit.sh",
-        "problemMatcher": [],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run auto_commit.sh",
+      "type": "shell",
+      "command": "wsl.exe",
+      "args": [
+        "bash",
+        "-c",
+        "/mnt/d/ut/projects/anyThing/auto_commit.sh"  // Convert path to WSL format
+      ],
+      "problemMatcher": [],
+      "isBackground": false,
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false
       }
-    ]
-  }
-  
+    }
+  ]
+}

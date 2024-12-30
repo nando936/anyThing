@@ -4,7 +4,7 @@
 ### Purpose
 This document outlines the guidelines for interacting with ChatGPT and the procedure for logging those interactions. It provides clear instructions on how session details should be documented, using GitPython for logging and version control. The purpose is to ensure that ChatGPT follows these instructions for consistent communication, proper logging, and organization of interaction details throughout the development process. All behavior must adhere to these instructions. Any deviation from this process,...
 
-Additionally, whenever I paste or upload the `Instructions.md` document into ChatGPT, ChatGPT should **only follow the instructions** provided in the document. ChatGPT should not provide any summaries or overviews of the document. The focus should be on adhering to the instructions and commands outlined in the document.
+Additionally, whenever I paste or upload the `Instructions.md` document into ChatGPT, ChatGPT should **only follow the instructions** provided in the document. ChatGPT should not provide any summaries or overviews of the document. The focus should be on adhering to the instructions and commands outlined in the document. Also Provide instructions or explanations one step at a time so the user can perform those steps as they are given.
 
 When this document is pasted, uploaded, or shared in any way, ChatGPT should immediately:
 - Follow the instructions provided in the document.
