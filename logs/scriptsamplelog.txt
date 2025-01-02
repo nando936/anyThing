@@ -45,3 +45,154 @@ Adds hanging bracket hardware and cover to vertical assemblies in Cabinet Vision
 - Automating hardware placement based on adjacency logic.
 
 ---
+
+**Date Logged:**  
+2025-01-02
+
+**Script Name or Description:**  
+Collection of UCS Scripts for Closet Assemblies
+
+**Source:**  
+Provided by User
+
+**Tags:**  
+#CabinetVision #UCS #Closet
+
+**Script Purpose:**  
+This collection includes UCS scripts for automating closet assembly processes, managing parameters, and linking shelves and hardware.
+
+**Script Code:**  
+```plaintext
+; Script 1: Catalog Save Mode Removes Parameters on Assemblies
+;Catalog Save Mode Removes Parameters on Assemblies ** Version 23.3 **
+  For each CAB assembly
+
+  If Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER Then
+    Exit
+  End If ; ( Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER ) -- Line: 4
+
+  If CabNo == Null Then
+    Delete Catalog_Save_Mode
+    ...
+  End If ; ( CabNo == Null ) -- Line: 8
+
+; Script 2: Links VB Shelf to Assembly
+;Links VB Shelf to Assembly ** Version 23.3 **
+
+  For Each CAB Assembly
+
+  If Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER Then
+    Exit
+  End If ; ( Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER )
+
+  If Cab.Type = ASM_TYPE_CORNER90 or Cab.Type = ASM_TYPE_CORNER45 Then
+    If Left_Depth == Null Then
+      Left_Depth = _CD
+      Left_Depth<style> = 1
+      Left_depth<desc> = 'Left Depth'
+    End If ; ( Left_Depth == Null )
+    ...
+  End If ; ( Cab.Type = ASM_TYPE_CORNER90 or Cab.Type = ASM_TYPE_CORNER45 )
+
+; Script 3: Links VB Shelf to Assembly (Prebuild On)
+ ;Links VB Shelf to Assembly  ** Version 23.3 ** (Prebuild On)
+
+  For Each CAB Assembly
+  
+  
+  If Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER Then
+    Exit
+  End If ; ( Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER ) -- Line: 6
+  
+  If Catalog_Save_Mode Then
+    Exit
+  End If ; ( Catalog_Save_Mode ) -- Line: 10
+
+; Script 4: Manipulates the reveal of the doors and drawer fronts
+;=======================================================================================================
+  ;Manipulates the reveal of the doors and drawer fronts
+  DIM PT AS NEW PART
+  PT.Qty<int> = 0
+  PT.Name = 'Closet Rev Side Parameter'
+  
+  DIM HNG AS NEW PART
+  HNG.Qty<int> = 0
+  HNG.Name = 'Closet OL Parameter'
+  
+  If Rev_On = 1 Then
+    REVL<meas> = 0 - ((Cab.PT.DZ - Cab._CV:349) / 2)
+    REVR<meas> = 0 - ((Cab.PT.DZ - Cab._CV:349) / 2)
+    
+    IF cab.hng._M:INSET > 0 Then
+      REVL = 0-cab.pt.dz - Cab.HNG._M:SOLAY
+      REVR = 0-cab.pt.dz - Cab.HNG._M:SOLAY
+    End If ; ( cab.hng._M:INSET > 0 ) -- Line: 28
+    
+  End If ; ( Rev_On = 1 ) -- Line: 24
+  
+  If Rev_On = 0 Then
+    DIM TO AS NEW PART
+    TO.Qty<int> = 0
+    TO.Name = 'Closet Rev TO Parameter'
+    
+    DIM DE AS NEW PART
+    DE.Qty<int> = 0
+    DE.Name = 'Closet Rev BO Parameter'
+    
+    REVL<meas> = 0 - Cab.HNG._M:SOLAY
+    REVR<meas> = 0 - Cab.HNG._M:SOLAY
+    REVB<meas> = Cab.TO.DZ - Cab.HNG._M:TBOLAY
+    REVT<meas> = Cab.DE.DZ - Cab.HNG._M:TBOLAY
+    IF cab.hng._M:INSET > 0 Then
+      REVL = 0- Cab.HNG._M:SOLAY
+      REVR = 0- Cab.HNG._M:SOLAY
+      REVB<meas> = -Cab.HNG._M:TBOLAY
+      REVT<meas> = -Cab.HNG._M:TBOLAY
+    End If ; ( cab.hng._M:INSET > 0 ) -- Line: 48
+    
+  End If ; ( Rev_On = 0 ) -- Line: 35
+  
+  ;Ends Manipulates the reveal of the doors and drawer fronts
+  ;=======================================================================================================
+  
+  **Date Logged:**  
+2025-01-02
+
+**Script Name or Description:**  
+For Each Cab Assembly - FININT Handling
+
+**Source:**  
+[Insert the URL or reference where the script was found, if available]
+
+**Tags:**  
+#CabAssembly #Scripting #Automation
+
+**Script Purpose:**  
+This script is designed to handle the assignment of different values to `FININT` based on whether it is `NULL` or equal to `1`. It also assigns a style and description to `FININT`.
+
+**Script Code:**  
+\```
+For Each Cab Assembly
+
+If FININT == NULL Then
+    FININT<bool> = '<lst> Standard=0|Exposed=1'
+Else
+    If FININT == 1 Then
+        FININT<bool> = '<lst> Exposed=1|Standard=0'
+    Else
+        FININT<bool> = '<lst> Standard=0|Exposed=1'
+    End If
+End If
+FININT<style> = 1
+FININT<desc> = '§  Exposed Interior:'
+\```
+
+**Testing Status:**  
+Not Tested
+
+**Testing Notes:**  
+[Provide any notes about the testing process, errors encountered, or modifications made.]
+
+**Planned Use Cases:**  
+- **Creating an Attribute in UCS Script:** This script can be used as a basis for creating custom attributes in UCS scripts. For example, you can modify `FININT<bool>`, `FININT<style>`, and `FININT<desc>` to add new attributes that specify different characteristics or properties for cabinet assemblies, such as material types, finishes, or custom dimensions.
+

@@ -1,0 +1,90 @@
+;=================== Actions =======================
+
+;===============================  Create UnFin Right =======================
+Dim RU as New Part 
+ RU.Visible<bool> = True 
+ RU.FACEWP = 4
+
+  
+ ;Sizing
+ RU.DX := RF.DX	;width
+ RU.DY := RF.DY	;length
+ RU.DZ := _M:DZ	;thickness
+ 
+ ;Position
+ RU.X := 0
+ RU.Y := 0
+ RU.Z := _M:DZ+.5
+ 
+ ;Angle
+ RU.AX<deg> = 0
+ RU.AY<deg> = 0
+ RU.AZ<deg> = 0
+
+
+
+
+;Links Unfinished Right End to Finished Right End
+
+;=================== For Each =======================
+ For Each RF Part
+ 
+ If Cab.Name = 'Std V02' Then
+
+;=================== Attributes =======================
+If UnFinRight == null then
+	UnFinRight<bool> = False
+	UnFinRight<style> = 1
+	UnFinRight<desc> = 'Unfin Right. Add?'
+End If
+
+If UnFinRight == True then
+	
+;=================== Actions =======================
+
+;===============================  Create UnFin Right =======================
+Dim RU as New Part 
+ RU.Visible<bool> = True 
+ RU.FACEWP = 4
+  
+ ;Sizing
+ RU.DX = RF.DX	;width
+ RU.DY = RF.DY	;length
+ RU.DZ = _M:DZ	;thickness
+ 
+ ;Position
+ RU.X = 0
+ RU.Y = 0
+ RU.Z = _M:DZ
+ 
+ ;Angle
+ RU.AX<deg> = 0
+ RU.AY<deg> = 0
+ RU.AZ<deg> = 0
+ 
+;==========================  Add Operdation for lineboring  ========================
+
+Dim ShelfPH as New Linebore
+
+ShelfPH.Owner = :.RU 	;owner at this location
+ShelfPH.Visible<bool> = true
+ShelfPH.FACEWP := 1
+
+
+;sizing
+ShelfPH.DX := 5mm		;width
+ShelfPH.DY := 15		;length
+ShelfPH.DZ := .375		;depth
+
+ ;position
+ShelfPH.X := RF.Z-UB.DZ-5
+ShelfPH.Y := (Cab.Interior.AS.PABSY) - 7.5    ;can't seem to get the right forumla To center on the Y position.  Tried doing RF.DY/2-7.5 (7.5 would be the half of DY)
+ShelfPH.Z := .375
+
+ ;angle
+ShelfPH.AX<deg> = 0
+ShelfPH.AY<deg> = 0
+ShelfPH.AZ<deg> = 0
+
+ShelfPH.SPCNG = 32mm
+ShelfPH.REPT <int> = 11

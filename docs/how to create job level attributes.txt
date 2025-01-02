@@ -1,0 +1,81 @@
+Attributes with Dropdown Options
+Attributes can be created throughout CABINETVISION and they can be dropdowns to allow specific selections.
+
+System Parameters
+To create a System Parameter, from the splash screen go to the Utilities tab and select Parameters.
+
+Enter the appropriate Prompt and Parameter.
+
+Set the Type to Integrate.
+
+The Value field will require a specific format…
+
+<lst>{Prompt}={Value}|{Prompt}={Value}
+
+<lst> must be present to force the dropdown
+
+{Prompt} Enter the prompt you would like to see in the dropdown. Do not use curly brackets, only used here to should each required part.
+
+= must be present between the prompt and the value
+
+{Value} enter the value for that selection. This value can be references in object intelligence and/or UCSs. Do not use curly brackets, only used here to should each required part.
+
+| Mean ‘or’ there the operation are prompt1 or prompt2 or etc.
+
+Select an appropriate Class and set the Style to Attribute.
+
+See below for an example of this.
+
+ 
+
+Added Parameter
+Besides using a UCS or a System Parameter a parameter can be added through the Object Tree or the Assembly, Part, or Operation Properties menu under the Parameters tab.
+
+Which each process you choose to add the parameter they all bring you to the same Parameter Edit menu.
+
+Set the Type to Integer and the Style to Attribute.
+
+The Name will be parameter.
+
+The Description will be the parameter prompt.
+
+Instead of entering a Value select Choices.
+
+Select Add while in the Choice List menu. Enter the appropriate Prompt and Value.
+
+ 
+
+User Created Standard
+When adding the Attribute through a UCS the For Each needs to be for whatever the Attribute should be present for.
+
+The format required is as follows. Note the curly brackets are to indicate items the user must enter their own values.
+
+If {Parameter} == Null Then
+
+{Parameter}<int> = '<lst>{Prompt}={Value}|{Prompt}={Value}'
+
+End if
+
+{Parameter}<style> = 1
+
+{Parameter}<desc> = '{Parameter description}'
+
+Below is an example of an Attribute added at the Assembly Level.
+
+For Each Cab Assembly
+
+;*************************************************************
+
+;--------------------------Cabinet Level Attribute------------------------
+
+;*************************************************************      
+
+If LocksC == null Then   
+
+LocksC<int> = '<lst>Default=0|None=1|Doors=2|Drawers=3|Both=4|Unique=5'
+
+End If                                
+
+LocksC<style> = 1
+
+LocksC<desc> = 'Locks'

@@ -1,3 +1,4 @@
+
 # Script Examples Log Instructions
 
 ## Purpose:
@@ -8,7 +9,6 @@ The Script Examples Log is used to document and organize script examples found o
 ## Formatting Guidelines:
 
 1. **Structure:**  
-   ```
    **Date Logged:**  
    [Insert the date when the script was logged]
 
@@ -36,8 +36,7 @@ The Script Examples Log is used to document and organize script examples found o
    **Planned Use Cases:**  
    [List any planned use cases or potential applications for the script.]
 
-   ---
-   ```
+---
 
 2. **Code Block Usage:**  
    - Ensure the **entire Script Examples Log entry** is enclosed in a `code block` for easy copying.
@@ -46,6 +45,30 @@ The Script Examples Log is used to document and organize script examples found o
 
 3. **Dividers:**  
    Each entry must be separated by a horizontal rule (`---`) to clearly distinguish it from others.
+
+---
+
+## Key Fixes to Avoid Code Block Spilling:
+
+1. **Escaping the Inner Code Block:**  
+   If the script code includes backticks (e.g., for inner code blocks), you need to escape the inner triple backticks to prevent the outer code block from being prematurely closed. This is done by placing a backslash (`\`) before the inner backticks.
+
+   - For example:
+     - Original:
+       ```  
+       ```
+       ```
+     - Fixed:
+       ```  
+       \```
+       ```
+
+   This prevents the code block from breaking, ensuring that everything remains contained within the main code block.
+
+2. **No Unescaped Special Characters:**  
+   Be mindful of any unescaped characters like `<`, `>`, or `|` that could interfere with the code block rendering. Ensure that all special characters are used correctly and do not break the formatting.
+
+By following these instructions and escaping inner code blocks as necessary, you will prevent the code entry from spilling out of the main code block.
 
 ---
 
@@ -100,4 +123,3 @@ The Script Examples Log is used to document and organize script examples found o
 - Always ensure the Script Examples Log entry is clean, accurate, and formatted properly.
 - The entire log entry must be enclosed within a `code block`, and ChatGPT's dialogue or instructions must always remain outside the `code block`.
 - Any additional instructions or adjustments must be discussed and agreed upon before applying changes.
-
