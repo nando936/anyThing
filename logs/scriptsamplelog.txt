@@ -1,0 +1,47 @@
+**Date Logged:**  
+2025-01-02
+
+**Script Name or Description:**  
+Adds Hanging Bracket Hardware and Cover
+
+**Source:**  
+Provided by User (no specific URL mentioned)
+
+**Tags:**  
+#CabinetVision #UCS #Hardware
+
+**Script Purpose:**  
+Adds hanging bracket hardware and cover to vertical assemblies in Cabinet Vision, ensuring appropriate routing and adjacency handling.
+
+**Script Code:**  
+;Adds Hanging Bracket Hardware and cover to Vertical ** Version 23.3 ** (ADJ=9)
+;--------------------------------------------------------------------------------------------------
+; There is nothing in this UCS that should be changed by the user.
+;--------------------------------------------------------------------------------------------------
+  For Each CAB Assembly
+  
+  If Catalog_Save_Mode Then
+    Exit
+  End If ; ( Catalog_Save_Mode ) -- Line: 7
+  
+  If Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER Then
+    Exit
+  End If ; ( Cab.Class != ASM_CLASS_CLOSET and Cab.Class != ASM_CLASS_CLOSETBASE and Cab.Class != ASM_CLASS_CLOSETUPPER ) -- Line: 11
+  
+  IF This.CON Then
+    Delete HangingRail
+    EXIT
+  End If ; ( This.CON ) -- Line: 15
+  [Additional script code truncated for brevity]
+
+**Testing Status:**  
+[Not Tested]
+
+**Testing Notes:**  
+[No notes yet.]
+
+**Planned Use Cases:**  
+- Adding custom hardware to assemblies in Cabinet Vision projects.
+- Automating hardware placement based on adjacency logic.
+
+---

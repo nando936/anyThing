@@ -1,0 +1,117 @@
+# Q&A Log Instructions
+
+## Purpose:
+The Q&A Log is used to document questions and answers found online or elsewhere in a consistent, clear, and structured format for easy reference and analysis.
+
+---
+
+## Formatting Guidelines:
+
+1. **Structure:**  
+   Each question and its answer must follow this format:
+   ```
+   **Date Found:**  
+   [Insert date when the information was logged]
+
+   **Question Author:**  
+   [Insert the name of the question author]
+
+   **Question Asked On:**  
+   [Insert the date when the question was originally asked]
+
+   **Question Link:**  
+   [Insert the URL or reference link where the question was found]
+
+   **Question Tags:**  
+   #[Insert tags, e.g., #CabinetVision, #Customization]
+
+   **Question:**  
+   > [Insert the question text here]
+
+   **Answer Author:**  
+   [Insert the name of the person who answered]
+
+   **Answer Provided On:**  
+   [Insert the date when the answer was provided]
+
+   **Answer Source:**  
+   [Insert the URL or reference link where the answer was found]
+
+   **Answer:**  
+   > [Insert the answer text here]
+
+   ---
+   ```
+
+2. **Code Block Usage:**  
+   - Ensure the Q&A log entry is fully enclosed in a `code block` for easy copying.
+   - **DO NOT** include any of ChatGPT's responses inside the code block.
+   - All instructions, explanations, or prompts must be outside the code block.
+
+3. **Dividers:**  
+   Each entry must be separated by a horizontal rule (`---`) to clearly distinguish it from others.
+
+---
+
+## Field Descriptions and Prompts:
+
+1. **Date Found:**  
+   - Use the current date when the log entry is created.
+
+2. **Question Author:**  
+   - Enter the name of the question author.
+   - If not provided, prompt: **"Who is the author of the question?"**
+
+3. **Question Asked On:**  
+   - Enter the date when the question was originally asked.
+   - If the source specifies a relative time (e.g., "1 month ago", "2 days ago", "5 minutes ago"), calculate the date based on the current date:
+     - For days, subtract the specified number of days.
+     - For months, subtract 30 days for each month.
+     - For hours or minutes, convert them to fractions of a day (e.g., 1 hour = 1/24 day, 30 minutes = 1/48 day).
+     - Use these conversions to estimate the exact date and format it as `YYYY-MM-DD`.
+   - If not provided, prompt: **"When was the question asked?"**
+
+4. **Question Link:**  
+   - Include the link to the source of the question.
+   - If unavailable, prompt: **"Do you have a link to the source of the question?"**
+
+5. **Question Tags:**  
+   - Add 2–3 relevant tags summarizing the topic.
+   - If the tags are unclear, prompt: **"What tags would best describe this question?"**
+
+6. **Question:**  
+   - Paste the question text exactly as found, formatted as a blockquote (`> `).
+
+7. **Answer Author:**  
+   - Enter the name of the person who answered.
+   - If not provided, prompt: **"Who is the author of the answer?"**
+
+8. **Answer Provided On:**  
+   - Enter the date when the answer was provided.
+   - If the source specifies a relative time (e.g., "2 months ago", "3 days ago", "10 minutes ago"), calculate the date based on the current date:
+     - For days, subtract the specified number of days.
+     - For months, subtract 30 days for each month.
+     - For hours or minutes, convert them to fractions of a day (e.g., 1 hour = 1/24 day, 30 minutes = 1/48 day).
+     - Use these conversions to estimate the exact date and format it as `YYYY-MM-DD`.
+   - If not provided, prompt: **"When was the answer provided?"**
+
+9. **Answer Source:**  
+   - Add the URL or reference link where the answer was found.
+   - If the answer is from the same source as the question, note: **"Same as Question Link."**
+
+10. **Answer:**  
+   - Paste the answer text exactly as found, formatted as a blockquote (`> `).
+
+---
+
+## Prompting for Missing Information:
+- Prompt the user for missing fields one at a time.
+- Ensure the prompt is specific to the missing field (e.g., "Do you have a link to the source of the question?").
+- After the user provides the information, update the log and move to the next missing field.
+
+---
+
+## Final Note:
+- Always ensure the Q&A log entry is clean, accurate, and formatted properly.
+- Any additional instructions or adjustments must be discussed and agreed upon before applying changes.
+

@@ -1,0 +1,31 @@
+**Date Found:**  
+1/2/2025
+
+**Question Author:**  
+Tanner Austin
+
+**Question Asked On:**  
+2024-12-03
+
+**Question Link:**  
+https://nexus.hexagon.com/community/cabinet_vision/f/cv-2023/146860/compare-door-in-job-to-door-catalog-template/844308
+
+**Question Tags:**  
+#CabinetVision #DoorCatalog #Customization
+
+**Question:**  
+> Is there a way I can compare the stiles and rails of a door in a job to the template that door was built from and note any differences between them? I swear I saw a table in the databases somewhere that stored door template information, but now I can't find anything of the sort. I wanna be able to note on my door list if the door frame has been changed from the default without having to make a drawing.
+
+**Answer Author:**  
+Drew Lewis
+
+**Answer Provided On:**  
+2024-11-03
+
+**Answer Source:**  
+https://nexus.hexagon.com/community/cabinet_vision/f/cv-2023/146860/compare-door-in-job-to-door-catalog-template/844308
+
+**Answer:**  
+> That info is stored as XML in the Build field of `[CVData].[dbo].[Door]`.
+
+---
